@@ -1,41 +1,24 @@
-import React from 'react';
-import kind from '@enact/core/kind';
-import { Panel, Header } from '@enact/sandstone/Panels';
-import Image from '@enact/sandstone/Image';
-import { Link } from 'react-router-dom'
-import Button from '@enact/sandstone/Button';
-import './CSS/mainpanel.app.css'
+import React, { useRef } from 'react';
+import ReactPlayer from 'react-player';
+import Webcam from 'react-webcam';
 
+const VideoPlayer = () => {
+  const videoId = 'mmglpRm6jrk'; // YouTube video ID
+  const webcamRef = useRef(null);
 
+  return (
+    <div>
+      <h1>YouTube Video Player</h1>
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1 }}>
+          <ReactPlayer url={`https://www.youtube.com/watch?v=${videoId}`} playing muted controls={false} />
+        </div>
+        <div style={{ flex: 1 }}>
+          <Webcam audio={false} ref={webcamRef} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-const AddProfile = kind({
-	name: 'Multi',
-
-	render: (props) => (
-		<Panel {...props}>
-			<Header title="Profiles" />
-
-			<div>
-			<Link to="/mypage/">
-					<Button
-						backgroundOpacity="transparent"
-						size="small"
-						icon="home">
-						MY PAGE !
-					</Button>
-				</Link>
-			</div>
-
-			<br></br><br></br>
-			<br></br><br></br>
-
-
-
-			
-
-		</Panel>
-	)
-
-});
-
-export default AddProfile;
+export default VideoPlayer;

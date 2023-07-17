@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-// import '../views/CSS/mypage.css';
+import '../views/CSS/mypage.css';
 import Pentagon from './Pentagon'; // Pentagon 컴포넌트 import
 
 const MyPage = () => {
@@ -10,23 +10,24 @@ const MyPage = () => {
   const handleDateSelection = (date) => {
     setSelectedDate(date);
   };
-
+  const handleDateChange = (date) => {
+    console.log('Selected Date:', date);
+  };
   return (
     <div>
-      <h1>My Page</h1>
+      <h1>My Page: JooHyeong</h1>
       <h2>Calendar</h2>
       <Calendar
         onChange={handleDateSelection}
         value={selectedDate}
         tileClassName="custom-calendar-tile"
       />
-      <h2>Exercise Types</h2>
-      
+
       {/* Pentagon 컴포넌트 사용 */}
-      <div>
-        <Pentagon>
-            </Pentagon>
-      </div>
+      <h2>Exercise Types</h2>
+      <Pentagon />
+
+    
     </div>
   );
 };

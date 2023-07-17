@@ -15,12 +15,14 @@ const Pentagon = () => {
     return { x, y }; // 좌표를 객체로 반환
   });
 
+  const exerciseNames = ["pull up", "push up", "squat", "walk", "situp"]; // 각 꼭짓점에 표시할 운동 이름
+
   return (
     <svg width={sideLengths.reduce((max, sideLength) => Math.max(max, sideLength), 0)} height={sideLengths.reduce((max, sideLength) => Math.max(max, sideLength), 0)} viewBox={`0 0 ${sideLengths.reduce((sum, sideLength) => sum + sideLength, 0)} ${sideLengths.reduce((sum, sideLength) => sum + sideLength, 0)}`}>
       <polygon points={points.map(point => `${point.x},${point.y}`).join(' ')} fill="#ff0000" />
       {points.map((point, index) => (
-        <text key={index} x={point.x} y={point.y} textAnchor="middle" alignmentBaseline="central" fill="#ffffff" fontSize="200">
-          {String.fromCharCode(97 + index)}
+        <text key={index} x={point.x} y={point.y} textAnchor="middle" alignmentBaseline="central" fill="#ffffff" fontSize="60">
+          {exerciseNames[index]}
         </text>
       ))}
     </svg>

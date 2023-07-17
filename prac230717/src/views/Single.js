@@ -1,41 +1,54 @@
-import React from 'react';
-import kind from '@enact/core/kind';
-import { Panel, Header } from '@enact/sandstone/Panels';
-import Image from '@enact/sandstone/Image';
-import { Link } from 'react-router-dom'
-import Button from '@enact/sandstone/Button';
-import './CSS/mainpanel.app.css'
+import React, { useEffect, useRef } from 'react';
 
+const Single = () => {
+  const videoRef = useRef(null);
 
+  useEffect(() => {
+    const videoElement = videoRef.current;
 
-const AddProfile = kind({
-	name: 'Single',
+    // 비디오 소스 설정
+    const videoSource = null; // 비디오 소스 설정
+    if (videoSource) {
+      videoElement.src = videoSource;
+    } else {
+      window.navigator.mediaDevices.getUserMedia({ video: true })
+        .then((stream) => {
+          videoElement.srcObject = stream;
 
-	render: (props) => (
-		<Panel {...props}>
-			<Header title="Profiles" />
+          // 비디오 프레임 처리 및 렌더링
+          const processFrame = () => {
+            // 프레임 전처리 및 이미지 처리 로직
 
-			<div>
-			<Link to="/mypage/">
-					<Button
-						backgroundOpacity="transparent"
-						size="small"
-						icon="home">
-						MY PAGE !
-					</Button>
-				</Link>
-			</div>
+            // 화면에 프레임 렌더링
+            requestAnimationFrame(processFrame);
+          };
 
-			<br></br><br></br>
-			<br></br><br></br>
+          const requestAnimationFrame =
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.msRequestAnimationFrame;
 
+          videoElement.addEventListener('loadeddata', () => {
+            processFrame();
+          });
+        })
+        .catch((error) => {
+          console.log('Failed to access webcam:', error);
+        });
+    }
 
+    return () => {
+      videoElement.srcObject = null;
+    };
+  }, []);
 
-			
+  return (
+    <div>
+      <h1> Single Mode: JooHyeong</h1>
+      <video ref={videoRef} autoPlay playsInline />
+    </div>
+  );
+};
 
-		</Panel>
-	)
-
-});
-
-export default AddProfile;
+export default Single;

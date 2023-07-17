@@ -20,7 +20,6 @@ const AddProfile = kind({
 				<Image src="https://dummyimage.com/400x200/54d7d9/fff.png&text=SW" style={{ height: 200, width: 260 }} />
 				<Image src="https://dummyimage.com/400x200/deba71/fff.png&text=JH" style={{ height: 200, width: 260 }} />
 				<Image src="https://dummyimage.com/400x200/84f565/fff.png&text=JY" style={{ height: 200, width: 260 }} />
-				<Image src="https://dummyimage.com/400x200/bd59bd/fff.png&text=JS" style={{ height: 200, width: 260 }} />
 				<Image src="https://dummyimage.com/400x200/808275/fff.png&text=†" style={{ height: 200, width: 260 }} />
 			</div>
 
@@ -43,13 +42,6 @@ const AddProfile = kind({
 					<Button
 						backgroundOpacity="transparent">
 						JooYeon
-					</Button>
-				</Link>
-
-				<Link to="/selectmode/">
-					<Button
-						backgroundOpacity="transparent">
-						JinSeong
 					</Button>
 				</Link>
 
