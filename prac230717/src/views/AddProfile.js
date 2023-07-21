@@ -9,7 +9,6 @@ import { useState } from 'react';
 import './CSS/mainpanel.app.css'
 
 
-
 const AddProfile = kind({
 	name: 'AddProfile',
 
@@ -18,12 +17,6 @@ const AddProfile = kind({
 			<Header title="Add your profile" />
 			<div className="information">
 				<div>
-					Image
-
-					<Image src="./../../image/blue.jpg" style={{ height: 270, width: 270 }} />
-
-					<br></br><br></br>
-
 					Name
 					<InputField>
 					</InputField>

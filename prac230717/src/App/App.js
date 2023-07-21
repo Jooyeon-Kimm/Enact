@@ -12,6 +12,8 @@ import MainPanel from '../views/MainPanel';
 import Multi from '../views/Multi';
 import Single from '../views/Single';
 import MyPage from '../views/MyPage';
+import WorkoutDone from '../views/WorkoutDone';
+
 
 import './attachErrorHandler';
 
@@ -34,6 +36,8 @@ const App = kind({
 				  <Route path="/multi" element={<Panels {...props}><Multi /></Panels>}></Route>
 				  <Route path="/single" element={<Panels {...props}><Single /></Panels>}></Route>
 				  <Route path="/mypage" element={<Panels {...props}><MyPage /></Panels>}></Route>
+				  <Route path="/workoutdone" element={<Panels {...props}><WorkoutDone /></Panels>}></Route>
+
                   {/* 엘리먼트의 상단에 위치하는 라우트들의 규칙을 모두 확인하고, 일치하는 라우트가 없다면 이 라우트가 화면에 나타나게 됩니다. */}
              
                 </Routes>

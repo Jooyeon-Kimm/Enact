@@ -4,7 +4,7 @@ import { Panel, Header } from '@enact/sandstone/Panels';
 import Image from '@enact/sandstone/Image';
 import { Link } from 'react-router-dom'
 import Button from '@enact/sandstone/Button';
-import './CSS/mainpanel.app.css'
+import './CSS/bootstrap.css'
 
 
 
@@ -25,16 +25,13 @@ const AddProfile = kind({
 
 			<div className="information">
 				<Link to="/selectmode/">
-					<Button
-						backgroundOpacity="transparent">
-						SeongWoo
-					</Button>
+				<a href="#" class="btn btn-primary">SeongWoo</a>
 				</Link>
 
 				<Link to="/selectmode/">
 					<Button
 						backgroundOpacity="transparent">
-						JuHyeong
+						JooHyeong
 					</Button>
 				</Link>
 
